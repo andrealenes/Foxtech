@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/contacto.css' %}" />
+	<title>Contacto</title>
+{% endblock %}
+
+{% block content %}
+	<header>
+		{% include 'snippets/main_nav.html' %}
+	</header>
+
+	<main class="main-contact">
+		{% include 'snippets/mensajes.html' %}
+
+		<section class="section-contact">
+			<article class="container-form-contact">
+				<h2 class="container-form-contact__title">Contactenos</h2>
+
+				<form action="{% url 'Users:contact' %}" method="POST" class="form-contact">
+
+					{% csrf_token %}
+
+					{{formulario.nombre}}
+					{% if formulario.nombre.errors %}
+						{{formulario.nombre.errors}}
+					{% endif %}
+
+					{{formulario.apellido}}
+					{% if formulario.apellido.errors %}
+						{{formulario.apellido.errors}}
+					{% endif %}
+
+					{{formulario.telefono}}
+					{% if formulario.telefono.errors %}
+						{{formulario.telefono.errors}}
+					{% endif %}
+
+					{{formulario.correo}}
+					{% if formulario.correo.errors %}
+						{{formulario.correo.errors}}
+					{% endif %}
+
+					{{formulario.asunto}}
+					{% if formulario.asunto.errors %}
+						{{formulario.asunto.errors}}
+					{% endif %}
+
+					{{formulario.mensaje}}
+					{% if formulario.mensaje.errors %}
+						{{formulario.mensaje.errors}}
+					{% endif %}
+
+					<button class="form-contact__btn">Enviar</button>
+				</form>
+			</article>
+		</section>
+
+		{% include 'snippets/aside.html' %}
+	</main>
+
+	{% include 'snippets/footer.html' %}
+{% endblock %}

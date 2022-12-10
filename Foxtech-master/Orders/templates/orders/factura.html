@@ -1,0 +1,223 @@
+{% load humanize %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0.3rem;
+        }
+
+        .container-header {
+            display: flex;
+            padding: .7em;
+        }
+
+        .container-logo {
+            width: 33%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+
+        .container-logo__img {
+            width: 180px;
+        }
+
+        .container-info-empresa {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            font-size: 1rem
+        }
+
+        .container-info-empresa__paragraph, .container-numero-factura__paragraph {
+            margin-top: 0;
+            margin-bottom: .3em;
+        }
+
+        .container-numero-factura {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 9.3em;
+            outline: 1px solid black;
+            text-align: center;
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+        @page {
+            size: A4;
+            margin: 30px;
+            
+        }
+        .container-table-total {
+            float: right;
+            border-collapse: collapse;
+            margin-top: 1.4em;
+            font-size: 3rem;
+        }
+        .container-info-client {
+            margin-top: 1.4em;
+            
+        }
+        .container-item-table-total {
+            background-color: #5f95e7;
+            color: white;
+            width: 94px;
+            text-align: center;
+            height: 35px;
+            line-height: 35px;
+            font-size: 3rem;
+
+        }
+        .container-item-table-total-value {
+            padding-left: .7em;
+            font-size: 0.5rem;
+
+        }
+        .container-table-detail-products {
+            width: 100%;
+            text-align: center;
+            border-collapse: collapse;
+            margin-top: 1.4em;
+            margin-bottom: 1.4em;
+
+        }
+
+    </style>
+</head>
+<body style=" font-size: 1rem; ">
+    <header class="container-header">
+        <div class="container-logo">
+            <img src="https://res.cloudinary.com/dwlbebx5r/image/upload/v1669770009/Foxtech/logo_fqavdv.png" alt="Logo SaleCold" class="container-logo__img">
+        </div>
+        <div class="container-info-empresa">
+            <p class="container-info-empresa__paragraph">Calle 45C # 4-10C-75, Barranquilla</p>
+            <p class="container-info-empresa__paragraph">Tel: 333333</p>
+            <p class="container-info-empresa__paragraph">foxtech.noreply@gmail.com</p>
+        </div>
+        <div class="container-numero-factura">
+            <p class="container-numero-factura__paragraph">Factura electronica de venta</p>
+            <p class="container-numero-factura__paragraph">
+                No. {{number_accounting_document}}
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <article class="container-info-client" >
+            <table style="border-collapse: collapse;font-size:10px;"  >
+                <tr>
+                    <td style=" background-color: #5f95e7; color: white; height: 30px;line-height: 30px;padding-left: .7em; width: 150px; font-size: 2rem;">
+                        Nombre
+                    </td>
+                    <td style="padding-left: .8em; padding-right: 1.3em;">
+                        {{nombre}}
+                    </td>
+                    <td style=" background-color: #5f95e7; color: white; height: 30px;line-height: 30px;padding-left: .1em; width: 150px; font-size: 12rem;">
+                        Tipo documento
+                    </td>
+                    <td style="padding-left: .8em; padding-right: 1.3em;">
+                        {{tipo_documento}}
+                    </td>
+                </tr>
+                <tr>
+                    <td style=" background-color: #5f95e7; color: white; height: 30px;line-height: 3px;padding-left: .1em;font-size: 12rem; ">
+                        Numero documento
+                    </td>
+                    <td style="padding-left: .8em; padding-right: 1.3em;">
+                        {{numero_documento}}
+                    </td>
+                    <td style=" background-color: #5f95e7; color: white; height: 30px;line-height: 30px;padding-left: .7em;font-size: 2rem; ">
+                        Correo
+                    </td>
+                    <td style="padding-left: .8em; padding-right: 1.3em; ">
+                        {{correo}}
+                    </td>
+                </tr>
+                <tr>
+                    <td style=" background-color: #5f95e7; color: white; height: 30px;line-height: 30px;padding-left: .7em; font-size: 2rem;">
+                        Telefono
+                    </td>
+                    <td style="padding-left: .8em; padding-right: 1.3em; ">
+                        {{telefono}}
+                    </td>
+                    <td style=" background-color: #5f95e7; color: white; height: 30px;line-height: 30px;padding-left: .7em;font-size: 2rem; ">
+                        Direccion
+                    </td>
+                    <td style="padding-left: .8em; padding-right: 1.3em;">
+                        {{direccion}}
+                    </td>
+                </tr>
+            </table>
+        </article>
+
+        <article style="margin-top: 1.8em;margin-bottom: 1.5em;">
+            <p style="display: inline;margin-right: 1.1em;font-size: 1.3rem;">
+                <strong>Fecha de compra: </strong> {{fecha|date:'d/m/Y'}}
+            </p>
+        </article>
+
+        <table class="container-table-detail-products" style="font-size: 1rem;">
+            <thead>
+                <tr class="tr-details-products" style=" background-color: #5f93e7; color: white; height: 27px;border-collapse: collapse;font-size: 3rem;">
+                    <th style="width: 35px;">#</th>
+                    <th >Producto</th>
+                    <th style="width: 100px;">Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in carrito.cartproducts_set.all %}
+                    {% with producto=object.product %}
+                        <tr>
+                            <td >{{forloop.counter}}</td>
+                            <td >{{producto}}</td>
+                            <td >{{object.quantity}}</td>
+                            <td >$ {{producto.final_price|intcomma}}</td>
+                            {% widthratio object.quantity 1 object.product.final_price as total %}
+                            <td>$ {{total|intcomma}}</td>
+                        </tr>
+                    {% endwith %}
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <table class="container-table-total" style="border-collapse: collapse;">
+            <tr >
+                <td class="container-item-table-total" style="font-size: 1.5rem;" >Costo envio</td>
+                <td class="container-item-table-total-value">$ {{orden.shipping_total|intcomma}}</td>
+            </tr>
+            <tr >
+                <td class="container-item-table-total" style="font-size: 0.8rem;" >IVA 19%</td>
+                <td class="container-item-table-total-value">
+                    $ {{carrito.total_iva|intcomma }}
+                </td>
+            </tr>
+            <tr >
+                <td class="container-item-table-total" style="font-size: 0.7rem;" >Subtotal</td>
+                <td class="container-item-table-total-value">
+                    $ {{ carrito.subtotal|intcomma }}
+                </td>
+            </tr>
+            <tr >
+                <td class="container-item-table-total" style="font-size: 0.7rem;">Total</td>
+                <td class="container-item-table-total-value">
+                    $ {{orden.total|intcomma}}
+                </td>
+            </tr>
+        </table>
+    </main>
+</body>
+</html>

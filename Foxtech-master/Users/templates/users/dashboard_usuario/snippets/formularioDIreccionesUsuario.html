@@ -1,0 +1,31 @@
+<label class="container-label-address-user">
+    Ciudad
+    {{formulario.ciudad}}
+    {% if formulario.ciudad.errors %}
+        {{formulario.ciudad.errors}}
+    {% endif %}
+</label>
+
+<label class="container-label-address-user">
+    Direccion
+    {{formulario.direccion}}
+    {% if formulario.direccion.errors %}
+        {{formulario.direccion.errors}}
+    {% endif %}
+</label>
+
+<label class="container-label-address-user">
+    Barrio/Localidad
+    {{formulario.barrio}}
+    {% if formulario.barrio.errors %}
+        {{formulario.barrio.errors}}
+    {% endif %}
+</label>
+
+<label class="container-label-address-user">
+    ¿Es su direccion principal?
+    {{formulario.defecto}}
+    {% if formulario.defecto.errors %}
+        {{formulario.defecto.errors}}
+    {% endif %}
+</label>

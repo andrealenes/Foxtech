@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/estilosBaseDireccion.css' %}">
+    <link rel="stylesheet" href="{% static 'css/direccionPedido.css' %}">
+    <title>Direccion</title>
+{% endblock %}
+
+{% block content %}
+    <header>
+        {% include 'snippets/main_nav.html' %}
+    </header>
+
+    {% include 'snippets/mensajes.html' %}
+
+    <main class="main-add-address-type-of-delivery">
+        <section class="container-section-add-address-type-of-delivery">
+            <h2 class="container-section-add-address-type-of-delivery__title">
+                Agregar otra direccion
+            </h2>
+            <form action="{% url 'Orders:add-address' %}" method="POST" class="container-form-address-user">
+                {% csrf_token %}
+
+                {% include 'users/dashboard_usuario/snippets/formularioDIreccionesUsuario.html' %}
+        
+                <button class="container-form-address-user__btn">
+                    Agregar nueva direccion
+                </button>
+            </form>
+        </section>
+
+        {% include 'snippets/aside.html' %}
+    </main>
+
+    {% include 'snippets/footer.html' %}
+{% endblock %}

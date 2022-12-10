@@ -1,0 +1,192 @@
+@media screen and (min-width: 600px) {
+    .main-menu {
+        font-size: 1.1rem;
+    }
+    .main-footer {
+        padding: 1em .3em;
+        font-size: 1.1rem;
+    }
+    .container-figure-main-header {
+        height: 430px;
+    }
+    .container-info-main-header__title {
+        font-size: 2.4rem;
+    }
+    .container-search-form__input {
+        height: 40px;
+    }
+    .main-header__form {
+        width: 50%;
+    }
+    .container-search-form__input, .container-search-form {
+        width: 100%;
+    }
+    .container-info-main-header__btn {
+        font-size: 1rem;
+        width: 125px;
+        height: 45px;
+        line-height: 45px;
+    }
+
+    .container-element-list-categories-main-menu, .container-element-option-user-main-menu {
+        font-size: 1rem;
+    }
+
+    .container-link-main-menu__quantity-products {
+        left: 1.9em;
+    }
+    .container-section-category__title {
+        font-size: 1.4rem;
+    }
+    .container-login {
+        width: 65%;
+    }
+    .container-form-register, .container-form-contact, .container-section-add-address-type-of-delivery {
+        width: 55%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .form-reset-password > input, .form-reset-password__btn, .form-reset-new-password > input, .form-reset-new-password__btn, .main-confirm-reset-password__btn {
+        display: block;
+        max-width: 310px;
+    }
+
+    .container-form-delete-product {
+        left: 93%;
+    }
+
+    .main-cart-shopping {
+        width: 70%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .container-element-products-cart-shopping {
+        font-size: .9rem;
+        padding: 1.1em;
+        grid-template-columns: 100px repeat(3, 1fr);
+        gap: .8em;
+    }
+    .container-picture-info__img {
+        width: 400px;
+    }
+    .container-order-and-products-category {
+        display: flex;
+        gap: 3.5em;
+        margin-top: 2.5em;
+        align-items: flex-start;
+    }
+    .container-products-category {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.3em;
+        margin: 0;
+    }
+    .container-category__title {
+        font-size: 1.4rem;
+    }
+    .container-pagination-products {
+        margin-top: 2.5em;
+        margin-left: calc(280px + 3.5em);
+    }
+    .container-filter {
+        width: 280px;
+        padding: 1.2em;
+        flex-shrink: 0;
+        background-color: white;
+        margin: 0;
+    }
+    .glider-prev {
+        left: 0;
+    }
+    .glider-next {
+        right: 0;
+    }
+    .main-product {
+        padding: 2em;
+        font-size: 1rem;
+    }
+    .container-images-product {
+        gap: 1.4em;
+    }
+    .container-info-product__title, .container-others-products__title {
+        font-size: 1.3rem;
+    }
+    .section-view-product {
+        margin-bottom: 2.8em;
+    }
+    .container-figure-product__img {
+        width: 50%;
+        height: 60%;
+    }
+    .container-figure-product__img--width {
+        width: 50%;
+        height: 70%;
+    }
+    .glider-prev {
+        left: -.5em;
+    }
+    
+    .glider-next {
+        right: -.5em;
+    }
+    .container-label-address-user__input, .container-label-address-user__select, .container-form-address-user__btn, .container-label-form__input, .container-select-update-user, .container-form-uptade-user__btn, .form-contraseña__btn, .container-label-form-contraseña__input {
+        max-width: 360px;
+    }
+    .container-main-dashboard-user {
+        padding: 1.6em;
+    }
+    .main-order, .main-order-address {
+        padding: 1.4em;
+    }
+    .container-total-resume-order {
+        padding: 1.7em;
+    }
+    .container-resume-products-order, .container-breadcrumb, .container-total-resume-order, .container-section-type-of-delivery-order, .container-type-of-payment-order, .container-confirm-order {
+        width: 390px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .container-login {
+        width: 45%;
+    }
+    .container-form-register, .container-form-contact, .container-section-add-address-type-of-delivery {
+        width: 45%;
+    }
+    .main-cart-shopping {
+        width: 60%;
+    }
+
+    .container-form-delete-product {
+        left: 94%;
+    }
+    .section-productos-ofertados__title {
+        font-size: 1.4rem;
+    }
+    .container-label-address-user__input, .container-label-address-user__select, .container-form-address-user__btn, .container-label-form__input, .container-select-update-user, .container-form-uptade-user__btn, .form-contraseña__btn, .container-label-form-contraseña__input {
+        font-size: 1rem;
+        height: 42px;
+    }
+    .container-main-dashboard-user__title {
+        font-size: 1.3rem;
+    }
+    .container-list-address-user, .container-info-element-address-user__link {
+        font-size: 1rem;
+    }
+    .container-element-address-user {
+        height: 245px;
+        padding: 1.3em;
+    }
+    .container-info-element-address-user__link {
+        width: 94px;
+        height: 40px;
+        line-height: 40px;
+    }
+    .container-resume-products-order, .container-breadcrumb, .container-total-resume-order, .container-section-type-of-delivery-order, .container-type-of-payment-order, .container-confirm-order {
+        width: 470px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

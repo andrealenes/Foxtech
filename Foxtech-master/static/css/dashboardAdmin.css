@@ -1,0 +1,19 @@
+.container-element-list-options-menu-dashboard-user {
+    height: 40px;
+}
+
+:is(summary, .lista li):hover {
+    background-color: rgb(6, 135, 240);
+}
+
+summary {
+    color: white;
+    padding-left: 1em;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.lista li {
+    line-height: 30px;
+    color: white;
+}

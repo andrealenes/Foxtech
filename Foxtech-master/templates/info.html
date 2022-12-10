@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/info.css' %}" />
+	<title>Informacion</title>
+{% endblock %}
+
+{% block content %}
+	<header>
+		{% include 'snippets/main_nav.html' %}
+	</header>
+
+	<main class="main-info">
+		<section class="info-proyect">
+			<h1 class="info-proyect__title">¿Qué es FoxTech?</h1>
+
+			<p class="info-proyect__paragraph">
+				FoxTech es un proyecto formativo de venta de equipos de tecnologias y repuestos, 
+				realizado por una estudiante del Tecnologo en Analisis y Desarrollo de Sistemas de
+				Informacion de la ficha 2338323.
+			</p>
+
+			<h2 class="info-proyect__subtitle">Integrantes</h2>
+
+			<ul class="container-list-members">
+				<li class="container-list-members__item container-list-members__item--icon">
+					<a href="https://github.com/andrealenes" target="_blank" rel="noopener">
+						Andrea Del Carmen Lenes
+					</a>
+				</li>
+
+			</ul>
+
+			<a href="/media/Manual_de_usuario.pdf" target="_blank" class="user-manual" rel="noopener">
+				<img src="https://res.cloudinary.com/dpxek6oka/image/upload/v1647219783/images/guide_afvhfz-1_a6o9f8.webp" alt="Icono para descargar manual de usuario"
+					class="user-manual__icon" aria-hidden="true" loading="lazy" decoding="async">
+				Descargar manual de usuario
+			</a>
+		</section>
+
+		<picture class="container-picture-info">
+            <source srcset="https://res.cloudinary.com/dwlbebx5r/image/upload/v1669771820/Foxtech/logo_programadora_qcf4co.png" media="(min-width: 1000px)" loading='lazy' alt="Persona programando" decoding="async" class="container-picture-info__img">
+			
+			<img src="https://res.cloudinary.com/dwlbebx5r/image/upload/v1669771820/Foxtech/logo_programadora_qcf4co.png" alt="Persona programando" loading="lazy" decoding="async" class="container-picture-info__img">
+		</picture>
+
+		{% include 'snippets/aside.html' %}
+	</main>
+
+	{% include 'snippets/footer.html' %}
+{% endblock %}

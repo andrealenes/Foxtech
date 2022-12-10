@@ -1,0 +1,43 @@
+body {
+    padding-top: 4em;
+}
+.main-header__form {
+    margin-left: auto;
+    margin-right: auto;
+}
+.container-search-form__input {
+    outline: 1px solid #000;
+}
+.container-search-product {
+    padding: 1.8em;
+    font-family: var(--font-footer);
+}
+.container-search-product__title {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 1.2em;
+}
+.container-search-product__paragraph {
+    font-size: 0.9rem;
+    margin-top: 1.6em;
+}
+@media screen and (min-width: 1200px) {
+    .container-search-product__title {
+        font-size: 1.6rem;
+    }
+    .container-search-product {
+        padding: 2.2em;
+    }
+    .container-search-product__paragraph {
+        font-size: 1rem;
+    }
+    .container-list-result {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.8em;
+        margin-top: 2.5em;
+    }
+    .article-product {
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,109 @@
+body {
+    padding-top: 3.5em;
+}
+
+.main-order-address {
+    padding: 1em;
+    font-size: .9rem;
+}
+
+.container-paragraph-total-resume-order--size {
+    border-bottom: none;
+}
+
+.container-section-type-of-delivery-order__title {
+    font-size: 1.1rem;
+    margin-top: 1.5em;
+    margin-bottom: 1.2em;
+}
+
+.form-type-of-delivery-order__btn {
+    display: block;
+    width: 198px;
+    height: 40px;
+    background: #479ECE;
+    color: white;
+    margin-top: 2.3em;
+    text-align: center;
+    border-radius: .5em;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    -ms-border-radius: .5em;
+    -o-border-radius: .5em;
+    font-size: .9rem;
+    border: none;
+    outline: none;
+    margin-right: auto;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.container-label-type-of-delivery {
+    display: block;
+    height: 47px;
+    background-color: white;
+    margin-bottom: 1.2em;
+    border-radius: .5em;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    -ms-border-radius: .5em;
+    -o-border-radius: .5em;
+    line-height: 47px;
+    padding-left: .8em;
+}
+
+.container-label-type-of-delivery__input {
+    margin-right: .4em;
+}
+
+.container-select-address-home-delivery {
+    display: none;
+}
+
+.container-select-address-home-delivery--show {
+    display: block;
+}
+
+.container-select-address-home-delivery {
+    background-color: white;
+    border-radius: .5em;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    -ms-border-radius: .5em;
+    -o-border-radius: .5em;
+    padding: 1.2em;
+}
+
+.container-element-address-home-delivery {
+    margin-bottom: 1.2em;
+    font-size: .8rem;
+    line-height: 1.7em;
+}
+
+.container-element-address-home-delivery__input {
+    margin-right: .5em;
+}
+
+.container-link-add-new-address-type-or-delivery {
+    display: flex;
+    align-items: center;
+    color: blue;
+    margin-top: 1em;
+}
+
+.container-link-add-new-address-type-or-delivery__icon {
+    font-size: 1.3rem;
+    margin-right: .5em;
+}
+
+.container-select-address-home-delivery__link:visited {
+    color: blue;
+}
+
+.main-add-address-type-of-delivery {
+    padding: 1em;
+}
+
+.container-section-add-address-type-of-delivery__title {
+    font-size: 1.1rem;
+}

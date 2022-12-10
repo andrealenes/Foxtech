@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/categoria.css' %}">
+    <link rel="stylesheet" href="{% static 'css/busqueda producto.css' %}">
+    <title>Busqueda productos</title>
+{% endblock %}
+
+{% block content %}
+    <header>
+        {% include 'snippets/main_nav.html' %}
+    </header>
+
+    {% include 'snippets/mensajes.html' %}
+
+    <main class="container-search-product">
+        <h2 class="container-search-product__title">Busqueda de productos</h2>
+
+        {% include 'products/snippets/formularioBusquedaProducto.html' %}
+
+        {% if request.GET.q %}
+            {% if cantidad_productos == 1 %}
+                <p class="container-search-product__paragraph">
+                    Se encontro {{cantidad_productos}} resultado para: {{busqueda}}.
+                </p>
+            {% elif cantidad_productos == 0 %}
+                <p class="container-search-product__paragraph">
+                    No se encontraron resultados para: {{busqueda}}.
+                </p>
+            {% else %}
+                <p class="container-search-product__paragraph">
+                    Se encontraron {{cantidad_productos}} resultados para: {{busqueda}}.
+                </p>
+
+                {% include 'products/snippets/ordenarProductos.html' %}
+            {% endif %}
+        {% else %}
+            <p class="container-search-product__paragraph">
+                Tiene que realizar una busqueda primero
+            </p>
+        {% endif %}
+
+        <section class="container-list-result">
+            {% for producto in productos %}
+                {% include 'products/snippets/plantillaProducto.html' %}
+            {% endfor %}
+        </section>
+
+        {% include 'products/snippets/paginacionProductos.html' %}
+
+        {% include 'snippets/aside.html' %}
+    </main>
+
+    {% include 'snippets/footer.html' %}
+{% endblock %}

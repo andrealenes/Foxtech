@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/formulario_recuperar_contraseña.css' %}">
+    <title>Recuperar contraseña</title>
+{% endblock %}
+
+{% block content %}
+    <header>
+        {% include 'snippets/main_nav.html' %}
+    </header>
+
+    <main class="main-form-reset-password">
+        <h2 class="main-form-reset-password__title">
+            Escriba la nueva contraseña
+        </h2>
+        <p class="main-form-reset-password__paragraph">
+            Por favor, ingrese su contraseña nueva dos veces para verificar que la ha escrito correctamente.
+        </p>
+
+        <form method="POST" class="form-reset-new-password">
+            {% csrf_token %}
+
+            {{form.new_password1.label}}
+            {{form.new_password1}}
+            {% if form.new_password1.errors %}
+                {{form.new_password1.errors}}
+            {% endif %}
+
+            {{form.new_password2.label}}
+            {{form.new_password2}}
+            {% if form.new_password2.errors %}
+            {{form.new_password2.errors}}
+            {% endif %}
+            <button class="form-reset-new-password__btn">Confirmar la nueva contraseña</button>
+        </form>
+    </main>
+
+    {% include 'snippets/aside.html' %}
+
+    {% include 'snippets/footer.html' %}
+{% endblock %}

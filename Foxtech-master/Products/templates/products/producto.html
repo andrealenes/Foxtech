@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/producto.css' %}">
+    <title>{{producto.name}}</title>
+{% endblock %}
+
+{% block content %}
+    <header>
+        {% include 'snippets/main_nav.html' %}
+    </header>
+
+    {% include 'snippets/mensajes.html' %}
+    
+    <main class="main-product">
+
+        <section class="section-view-product">
+            <article class="container-images-product">
+                <figure class="container-figure-product container-figure-product--position">
+                    <img src="{{producto.image}}" alt="{{producto.name}}"
+                        class="container-figure-product__img container-figure-product__img--width" loading="lazy" decoding="async">
+                </figure>
+            </article>
+
+            <article class="container-info-product">
+                <h2 class="container-info-product__title">{{producto.name}}</h2>
+                <p class="container-info-product__code">Codigo: {{producto.reference}}</p>
+                {% if producto.discount == 0 %}
+                    <p class="container-info-product__price">$ {{producto.unit_price|intcomma}}</p>
+                {% else %}
+                    <p class="container-info-product__price">
+                        $ {{ producto.final_price|intcomma }}
+                    </p>
+                    <p class="container-info-product__discount">
+                        Antes $ {{ producto.unit_price|intcomma }}
+                    </p>
+                {% endif %}
+
+                <p class="container-info-product__description">{{producto.description}}</p> 
+
+                <form action="{% url 'Carts:add_product' %}" method="POST" class="container-form-product">
+                    {% csrf_token %}
+
+                    <input type="hidden" name="url" value="{{request.build_absolute_uri}}">
+
+                    <input type="hidden" name="product_id" value="{{producto.id_product}}">
+
+                    <label class="container-count-order {% if producto.stock == 0 %}container-count-order--deactivated{% endif %}">
+                        <input type="button" title="Eliminar" value="-" id="remove_product" class="container-count-order__add {% if producto.stock == 0 %}container-form-product--deactived{% endif %}" />
+                        <input type="number" readonly value="1" id="quantity" name="quantity" class="container-count-order__quantity {% if producto.stock == 0 %}container-form-product--deactived{% endif %}">
+                        <input type="button" title="Adicionar" value="+" id="add_product" class="container-count-order__remove {% if producto.stock == 0 %}container-form-product--deactived{% endif %}" />
+                    </label>
+
+                    <button class="container-form-product__btn {% if producto.stock == 0 %}container-form-product__btn--deactived{% endif %}">
+                        <i class="fas fa-shopping-cart container-add-product__icon" aria-hidden="true"></i>
+                        {% if producto.stock == 0 %}
+                            Producto no disponible
+                        {% else %}
+                            Agregar al carrito
+                        {% endif %} 
+                    </button>
+                </form>
+            </article>
+        </section>
+
+        <section class="container-others-products glider-contain">
+            <h2 class="container-others-products__title">
+                Otros productos relacionados
+            </h2>
+
+            <div class="container-more-products glider">
+                {% for producto in productos_aleatorios %}
+                    <section>
+                        {% include 'products/snippets/plantillaProducto.html' %}
+                    </section>
+                {% empty %}
+                    <p>No hay productos relacionados :(</p>
+                {% endfor %}
+            </div>
+
+            <button aria-label="Previous" class="glider-prev">
+                <i class="fa-solid fa-angle-left" aria-hidden="true"></i>
+            </button>
+            <button aria-label="Next" class="glider-next">
+                <i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+            </button>
+        </section>
+
+        {% include 'snippets/aside.html' %}
+    </main>
+
+    {% include 'snippets/footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js" defer></script>
+    <script src="{% static 'js/sliders.js' %}" defer></script>
+{% endblock %}

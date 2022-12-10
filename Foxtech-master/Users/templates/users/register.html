@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/register.css' %}" />
+	<title>Registro</title>
+{% endblock %}
+
+{% block content %}
+	<header>
+		{% include 'snippets/main_nav.html' %}
+	</header>
+
+	<main class="main-register">
+		{% include 'snippets/mensajes.html' %}
+
+		<article class="container-form-register">
+			<h2 class="container-form-register__title"> Registro </h2>
+
+			<form action = "{% url 'Users:register' %}" method="POST" class="form-register">
+				{% csrf_token %}
+
+				{{formulario.nombre}}
+				{% if formulario.nombre.errors %}
+					{{formulario.nombre.errors}}
+                {% endif %}
+
+				{{formulario.apellido}}
+				{% if formulario.apellido.errors %}
+					{{formulario.apellido.errors}}
+                {% endif %}
+
+				{{formulario.tipo_documento}}
+				{% if formulario.tipo_documento.errors %}
+					{{formulario.tipo_documento.errors}}
+				{% endif %}
+
+				{{formulario.numero_documento}}
+				{% if formulario.numero_documento.errors %}
+					{{formulario.numero_documento.errors}}
+				{% endif %}
+
+				{{formulario.genero}}
+				{% if formulario.genero.errors %}
+					{{formulario.genero.errors}}
+				{% endif %}
+
+				{{formulario.ciudad}}
+				{% if formulario.ciudad.errors %}
+					{{formulario.ciudad.errors}}
+				{% endif %}
+
+				{{formulario.direccion}}
+				{% if formulario.direccion.errors %}
+					{{formulario.direccion.errors}}
+                {% endif %}
+
+				{{formulario.barrio}}
+				{% if formulario.barrio.errors %}
+					{{formulario.barrio.errors}}
+                {% endif %}
+
+				{{formulario.telefono}}
+				{% if formulario.telefono.errors %}
+					{{formulario.telefono.errors}}
+				{% endif %}
+
+				{{formulario.email}}
+				{% if formulario.email.errors %}
+					{{formulario.email.errors}}
+                {% endif %}
+
+				{{formulario.contrasena}}
+				{% if formulario.contrasena.errors %}
+					{{formulario.contrasena.errors}}
+                {% endif %}
+
+				<button class="form-register__btn">Crear cuenta</button>
+			</form>
+		</article>
+
+		{% include 'snippets/aside.html' %}
+	</main>
+
+	{% include 'snippets/footer.html' %}
+{% endblock %}

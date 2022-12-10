@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/dashboardUsuario.css' %}">
+    <link rel="stylesheet" href="https://res.cloudinary.com/dpxek6oka/raw/upload/v1643485116/normalize_ej2ndq.css" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="shortcut icon" href="https://res.cloudinary.com/dwlbebx5r/image/upload/v1669853548/Foxtech/foxtech_dvew9k.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    {% block head %} {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/media_queries/tablet.css' %}" media="(min-width: 600px)">
+    <link rel="stylesheet" href="{% static 'css/media_queries/desktop.css' %}" media="(min-width: 1000px)">
+</head>
+<body class="preload-hidden" id="body" style="position: relative;">
+    <div aria-hidden="true" class="container-preload container-preload--show" id="preload">
+        <img src="https://res.cloudinary.com/dwlbebx5r/image/upload/v1669770009/Foxtech/logo_fqavdv.png" alt="Logo SaleCold" class="container-preload__img" aria-hidden="true" decoding="async" loading="lazy">
+        <div class="preload"></div>
+    </div>
+
+    <div class="container-toggle-menu-dashboard-user" id="container-button-toggle-dashboard">
+        <i class="fa-solid fa-bars container-toggle-menu-dashboard-user--icon" id="button-toggle-dashboard" aria-hidden="true"></i>
+    </div>
+
+    <header class="container-header-dashboard-user">
+        <nav class="container-menu-dashboard-user" id="menu-dashboard-user">
+            <figure class="container-figure-menu-dashboard-user">
+                <a href="{% url 'index' %}" class="container-link-logo-menu-dashboard-user">
+                    <img src="https://res.cloudinary.com/dwlbebx5r/image/upload/v1669770009/Foxtech/logo_fqavdv.png" alt="Logo SaleCold" loading="lazy" decoding="async" class="container-link-logo-menu-dashboard-user__img">
+                </a>
+            </figure>
+    
+            <ul class="container-list-options-menu-dashboard-user">
+                {% block options_menu %} {% endblock %}
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="container-main-dashboard-user" id="main-dashboard-user">
+        <div class="container-header-main-dashboard-user">
+            <img src="https://res.cloudinary.com/dpxek6oka/image/upload/v1647134030/images/user_uhrsrh.webp" alt="Logo usuario" loading="lazy" decoding="async" class="container-header-main-dashboard-user__img" aria-hidden="true">
+            {{request.user.first_name.split | first}} 
+            {{request.user.last_name.split | first}} 
+        </div>
+
+        {% include 'snippets/mensajes.html' %}
+
+        {% block content %} {% endblock %}
+    </main>
+
+    <script src="{% static 'js/index.js' %}" defer></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<article class="container-filter">
+    <h3 class="container-filter__title">Ordenar por</h3>
+    <ul class="container-list-filter-products">
+        <li class="element-list-filter-products">
+            <a href="?ordenar=1{% if request.GET.q %}&q={{request.GET.q}}{% endif %}" class="container-link-filter-products {% if request.GET.ordenar == '1' %} container-link-filter-products--active {% endif %}">
+                <i class="fa-solid fa-arrow-down-1-9 container-link-filter-products__icon" aria-hidden="true"></i>
+                Precio: menor a mayor
+            </a>
+        </li>
+        <li class="element-list-filter-products">
+            <a href="?ordenar=2{% if request.GET.q %}&q={{request.GET.q}}{% endif %}" class="container-link-filter-products {% if request.GET.ordenar == '2' %} container-link-filter-products--active {% endif %}">
+                <i class="fa-solid fa-arrow-up-1-9 container-link-filter-products__icon" aria-hidden="true"></i>
+                Precio: mayor a menor
+            </a>
+        </li>
+        <li class="element-list-filter-products">
+            <a href="?ordenar=3{% if request.GET.q %}&q={{request.GET.q}}{% endif %}" class="container-link-filter-products {% if request.GET.ordenar == '3' %} container-link-filter-products--active {% endif %}">
+                <i class="fa-solid fa-arrow-up-a-z container-link-filter-products__icon" aria-hidden="true"></i>
+                Nombre: (A-Z)
+            </a>
+        </li>
+        <li class="element-list-filter-products">
+            <a href="?ordenar=4{% if request.GET.q %}&q={{request.GET.q}}{% endif %}" class="container-link-filter-products {% if request.GET.ordenar == '4' %} container-link-filter-products--active {% endif %}">
+                <i class="fa-solid fa-arrow-down-z-a container-link-filter-products__icon" aria-hidden="true"></i>
+                Nombre: (Z-A)
+            </a>
+        </li>
+        <li class="element-list-filter-products">
+            <a href="?ordenar=5{% if request.GET.q %}&q={{request.GET.q}}{% endif %}" class="container-link-filter-products {% if request.GET.ordenar == '5' %} container-link-filter-products--active {% endif %}">
+                <i class="fa-solid fa-arrow-up-9-1 container-link-filter-products__icon" aria-hidden="true"></i>
+                Descuento
+            </a>
+        </li>
+    </ul>
+</article>

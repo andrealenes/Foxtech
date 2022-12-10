@@ -1,0 +1,40 @@
+{% load static %}
+{% load humanize %}
+
+<article class="container-template-product">
+    {% if producto.discount != 0 %}
+        <p class="container-template-product__discount">{{producto.discount}}%</p>
+    {% endif %}
+    <a href="{% url 'Products:product' producto.slug %}" class="container-image-template-product">
+        <img src="{{producto.image}}" alt="{{producto.name}}"
+        class="container-image-template-product__img" loading="lazy" decoding = "async" />
+    </a>
+    <p class="container-template-product__title">{{producto.name}}</p>
+    <p class="container-price-template-product">
+        {% if producto.discount == 0 %}
+            $ {{ producto.final_price|intcomma }}
+        {% else %}
+            $ {{ producto.final_price|intcomma }}
+            <span class="container-price-template-product__span">
+                $ {{ producto.unit_price|intcomma }}
+            </span>
+        {% endif %}
+    </p>
+    
+    <form method="POST" class="container-form-template-product" action="{% url 'Carts:add_product' %}">
+        {% csrf_token %}
+
+        <input type="hidden" name="url" value="{{request.build_absolute_uri}}">
+        
+        <input type="hidden" name="product_id" value="{{producto.id_product}}">
+
+        <button class="container-btn-template-product" {% if producto.stock == 0 %}disabled{% endif %}>
+                <i class="fas fa-shopping-cart container-btn-template-product__icon" aria-hidden="true"></i> 
+                {% if producto.stock == 0 %}
+                    No disponible
+                {% else %}
+                    Agregar al carrito
+                {% endif %}
+        </button>
+    </form>
+</article>

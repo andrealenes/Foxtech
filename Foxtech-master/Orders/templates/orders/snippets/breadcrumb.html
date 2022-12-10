@@ -1,0 +1,12 @@
+<article class="container-breadcrumb">
+    <ul class="container-list-breadcrumb">
+        {% for item in breadcrumb %}   
+            <li class="container-element-list-breadcrumb {% if item.active %} container-element-list-breadcrumb__link--active {% endif %}">
+                <a href="{{item.url}}" class="container-element-list-breadcrumb__link {% if item.title == 'Confirmación' %}container-element-list-breadcrumb__link--margin{% endif %}">
+                    {{item.title}}
+                </a>
+                {% if item.title != 'Confirmación' %} / {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</article>

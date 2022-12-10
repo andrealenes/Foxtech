@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/carritoDeCompras.css' %}">
+    <title>Carrito de compras</title>
+{% endblock %}
+
+{% block content %}
+    <header>
+        {% include 'snippets/main_nav.html' %}
+    </header>
+
+    {% include 'snippets/mensajes.html' %}
+
+    <main class="{% if carrito.product.exists %}main-cart-shopping{%else%}main-cart-shoppin--width{%endif%}">
+        {% if carrito.product.exists %}
+            <h2 class="main-cart-shopping__title">
+                Carrito de compras
+            </h2>
+            <section class="section-products-cart-shopping">
+                    <ul class="container-list-products-cart-shopping">
+                        {% for object in carrito.products_related %}
+                            {% with producto=object.product %}
+                                    <li class="container-element-products-cart-shopping">
+                                        <a href="{% url 'Products:product' producto.slug %}" class="container-element-products-cart-shopping__link">
+                                            {{ producto }}
+                                        </a>
+                                        <img src="{{producto.image}}" alt="{{producto.name}}" loading = "lazy" class="container-element-products-cart-shopping__img">
+                                        <p class="container-element-products-cart-shopping__paragraph">
+                                            $ {{ producto.final_price|intcomma }}
+                                        </p>
+                                        {% include 'cart/snippets/plantillaModificarCantidadCarrito.html' %}
+                                        {% include 'cart/snippets/formularioEliminarProducto.html' %}
+                                    </li>
+                            {% endwith %}
+                        {% endfor %}
+                    </ul>
+
+                    <div class="container-options-cart-shopping">
+                        <a href="{% url 'index' %}" class="container-options-cart-shopping__link">
+                            <i class="fa-solid fa-angle-left" aria-hidden="true"></i>
+                            Seguir comprando
+                        </a>
+    
+                        <a href="{% url 'Carts:clear_cart' %}" class="container-options-cart-shopping__link ">
+                            <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                            Eliminar todo
+                        </a>
+                    </div>
+            </section>
+    
+            <section class="container-total-price-cart">
+                <h2 class="container-total-price-cart__title">Resumen de compra</h2>
+                <p class="container-total-price-cart__paragraph">
+                    <strong>Subtotal:</strong> $ {{ carrito.subtotal|intcomma }}
+                </p>
+                <p class="container-total-price-cart__paragraph">
+                    <strong>IVA 19%:</strong> $ {{carrito.total_iva|intcomma }}
+                </p>
+                <p class="container-total-price-cart__paragraph">
+                    <strong>Total:</strong> $ {{ carrito.total|intcomma }}
+                </p>
+
+                <p class="container-total-price-cart__paragraph container-total-price-cart__paragraph--size">
+                    <i class="fa-solid fa-truck-fast container-total-price-cart__icon" aria-hidden="true"></i>
+                    El costo del envío no está incluido en el precio
+                </p>
+        
+                <a href="{% url 'Carts:check_quantity_cart' %}" class="container-confirm-shop-cart">
+                    Ir a pagar
+                </a>
+            </section>
+        {% else %}
+            <section class="container-shopping-cart-empty">
+                <img src="https://res.cloudinary.com/dpxek6oka/image/upload/v1646861883/images/shopping-cart-1_yrfl4i.webp" alt="Carrito de compras" loading="lazy" class="container-shopping-cart-empty__img" aria-hidden="true" decoding="async">
+                <p class="container-shopping-cart-empty__paragraph">
+                    Tu carrito de compras esta vacio.
+                </p>
+                <a href="{% url 'index' %}" class="container-shopping-cart-empty__link">
+                    Seguir comprando
+                </a>
+            </section>
+        {% endif %}
+
+        {% include 'snippets/aside.html' %}
+    </main>
+
+    {% include 'snippets/footer.html' %}
+{% endblock %}

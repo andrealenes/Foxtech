@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://res.cloudinary.com/dpxek6oka/raw/upload/v1643485116/normalize_ej2ndq.css" />
+        <link rel="shortcut icon" href="https://res.cloudinary.com/dwlbebx5r/image/upload/v1669853548/Foxtech/foxtech_dvew9k.png" type="image/x-icon" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+        {% block head %} {% endblock %}
+        <link rel="stylesheet" href="{% static 'css/media_queries/tablet.css' %}" media="(min-width: 600px)">
+        <link rel="stylesheet" href="{% static 'css/media_queries/desktop.css' %}" media="(min-width: 1000px)">
+    </head>
+    <body class="preload-hidden" id="body">
+        <div aria-hidden="true" class="container-preload container-preload--show" id="preload">
+            <img src="https://res.cloudinary.com/dwlbebx5r/image/upload/v1669770009/Foxtech/logo_fqavdv.png" alt="Logo SaleCold" class="container-preload__img" aria-hidden="true" decoding="async" loading="lazy">
+            <div class="preload"></div>
+        </div>
+
+        {% block content %} {% endblock %}
+
+        <script src="{% static 'js/index.js' %}" defer></script>
+    </body>
+</html>

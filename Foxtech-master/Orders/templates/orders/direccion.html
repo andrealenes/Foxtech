@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/pedido.css' %}">
+    <link rel="stylesheet" href="{% static 'css/direccionPedido.css' %}">
+    <title>Direccion</title>
+{% endblock %}
+
+{% block content %}
+    <header>
+        {% include 'snippets/main_nav.html' %}
+    </header>
+
+    <main class="main-order-address">
+        {% include 'orders/snippets/breadcrumb.html' %}
+
+        {% include 'snippets/mensajes.html' %}
+
+        <section class="container-section-type-of-delivery-order">
+            <h2 class="container-section-type-of-delivery-order__title">
+                Métodos de entrega
+            </h2>
+
+            <form action="{% url 'Orders:address' %}" method="POST" class="form-type-of-delivery-order">
+                {% csrf_token %}
+
+                {% for tipo_envio in tipos_de_envio %} 
+                    <label class="container-label-type-of-delivery">
+                        <input type="radio" name="metodo_entrega" value="{{tipo_envio}}" {% if orden.type_of_delivery == tipo_envio %}checked{% endif %} required onclick="mostrarDirecciones(this)" class="container-label-type-of-delivery__input">
+                        {{tipo_envio}}
+                    </label>
+                {% endfor %}
+
+                <label id="container-direcciones" class="container-select-address-home-delivery">
+                    {% for direccion in direcciones %}
+                        <div class="container-element-address-home-delivery">
+                            <input type="radio" name="direccion" value="{{direccion.address}}" {% if direccion.default %}checked{% endif %} class="container-element-address-home-delivery__input">
+                            <strong>Direccion: </strong>{{direccion.address}}
+                            <strong>Ciudad: </strong>{{direccion.city}}
+                            <strong>Codigo postal: </strong>{{direccion.city.zip_code}}
+                        </div>
+                    {% endfor %}
+
+                    <a href="{% url 'Orders:add-address' %}" class="container-link-add-new-address-type-or-delivery">
+                        <i class="fa-solid fa-map-location-dot container-link-add-new-address-type-or-delivery__icon" aria-hidden="true"></i>
+                        Agregar otra direccion
+                    </a>
+                </label>
+
+                <button class="form-type-of-delivery-order__btn">
+                    Continuar
+                </button>
+            </form>
+        </section>
+
+        <section class="container-total-resume-order container-total-resume-order--size">
+            <h2 class="container-total-resume-order__title">
+                Resumen orden de compra
+            </h2>
+            <p class="container-paragraph-total-resume-order">
+                <strong>Subtotal:</strong> $ {{ carrito.subtotal|intcomma }}
+            </p>
+            <p class="container-paragraph-total-resume-order">
+                <strong>IVA 19%: </strong> $ {{carrito.total_iva|intcomma }}
+            </p> 
+            <p class="container-paragraph-total-resume-order">
+                <strong>Total:</strong> $ {{ carrito.total|intcomma }}
+            </p>
+            <p class="container-paragraph-total-resume-order container-paragraph-total-resume-order--size">
+                <i class="fa-solid fa-truck-fast container-paragraph-total-resume-order__icon" aria-hidden="true"></i>
+                El costo del envío no está incluido en el precio
+            </p>
+        </section>
+
+        {% include 'snippets/aside.html' %}
+    </main>
+
+    {% include 'snippets/footer.html' %}
+{% endblock %}

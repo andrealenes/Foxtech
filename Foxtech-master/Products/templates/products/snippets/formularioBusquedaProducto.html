@@ -1,0 +1,8 @@
+<form action="{% url 'Products:search' %}" method="GET" class="main-header__form">
+    <div class="container-search-form">
+        <input type="text" name="q" class="container-search-form__input" placeholder="Buscar..." value="{{busqueda}}"/>
+        <button class="container-search-form__btn">
+            <i class="fas fa-search" aria-hidden="true"></i>
+        </button>
+    </div>
+</form>

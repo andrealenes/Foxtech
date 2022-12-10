@@ -1,0 +1,27 @@
+<div class="container-quantity-product-cart-shopping">
+    <form action="{% url 'Carts:modify_quantity_product' %}" method="POST" class="container-form-increase-quantity-product-cart-shopping">
+        {% csrf_token %}
+
+        <input type="hidden" name="action" value="disminuir-cantidad">
+        <input type="hidden" name="product_id" value="{{producto.id_product}}">
+        <button class="container-form-increase-quantity-product-cart-shopping__btn 
+        {% if object.quantity == 1 %}          container-form-increase-quantity-product-cart-shopping__btn--deactived 
+        {% endif %}">
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+        </button>
+    </form>
+    
+    <p class="container-quantity-product-cart-shopping__paragraph">
+        {{object.quantity}}
+    </p>
+
+    <form action="{% url 'Carts:modify_quantity_product' %}" method="POST" class="container-form-decrease-quantity-product-cart-shopping">
+        {% csrf_token %}
+
+        <input type="hidden" name="action" value="aumentar-cantidad">
+        <input type="hidden" name="product_id" value="{{producto.id_product}}">
+        <button class="container-form-decrease-quantity-product-cart-shopping__btn">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+        </button>
+    </form>
+</div>

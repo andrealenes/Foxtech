@@ -1,0 +1,70 @@
+{% load static %}
+
+<nav class="main-menu" id="main-menu">
+	<div class="container-logo-main-menu">
+		<div class="container-categories-main-menu">
+			<i class="fa-solid fa-bars container-categories-main-menu__icon" id="button-toggle-main-menu-categories" aria-hidden="true"></i>
+			<ul class="container-list-categories-main-menu" id="container-toggle-main-menu-categories">
+				{% for categoria in categorias %}
+					<li class="container-element-list-categories-main-menu">
+						<a href="{% url 'Products:category' categoria.slug %}" class="container-link-element-categories-main-menu">
+							{% if categoria.name == 'Todos los productos' %}
+							{% elif categoria.name == 'Elementos de refrigeración' %}
+								<i class="fa-solid fa-snowflake container-link-element-categories-main-menu__icon" aria-hidden="true"></i>
+							{% elif categoria.name == 'Tuberías' %}
+								<img src="https://res.cloudinary.com/dpxek6oka/image/upload/v1645663906/images/pipe_ooila9_hpbu1m.webp" alt="Icono {{categoria.name}}" aria-hidden="true" class="container-link-element-categories-main-menu__icon" decoding="async" loading="lazy">
+							{% elif categoria.name == 'Compresores' %}
+								<img src="https://res.cloudinary.com/dpxek6oka/image/upload/v1645663906/images/compressor_viqnu5_tgauvn.webp" alt="Icono {{categoria.name}}" aria-hidden="true" class="container-link-element-categories-main-menu__icon" decoding="async" loading="lazy">
+							{% elif categoria.name == 'Condensadoras' %}
+								<img src="https://res.cloudinary.com/dpxek6oka/image/upload/v1645663906/images/condensador_rnvvi0.webp" alt="Icono {{categoria.name}}" aria-hidden="true" class="container-link-element-categories-main-menu__icon" decoding="async" loading="lazy">
+							{% elif categoria.name == 'Aire acondicionado' %}
+								<img src="https://res.cloudinary.com/dpxek6oka/image/upload/v1645663906/images/aire-acondicionado_md11uu_btrcqe.webp" alt="Icono {{categoria.name}}" aria-hidden="true" class="container-link-element-categories-main-menu__icon" decoding="async" loading="lazy">
+							{% elif categoria.name == 'Gases refrigerantes' %}
+								<img src="https://res.cloudinary.com/dpxek6oka/image/upload/v1647824645/images/spray-para-el-cabello-1_ns38f5.webp" alt="Icono {{categoria.name}}" loading="lazy" decoding="async" class="container-link-element-categories-main-menu__icon">
+							{% endif %}
+							{{categoria}}
+							<i class="fa-solid fa-angle-right container-link-element-categories-main-menu__arrow" aria-hidden="true"></i>
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+
+		<a href="{% url 'index' %}" class="container-link-logo-main-menu">
+			<img src="https://res.cloudinary.com/dwlbebx5r/image/upload/v1669852029/Foxtech/foxtech_500_200_px_b4p03w.png" alt="Logo SaleCold" loading="lazy" class="container-link-logo-main-menu__img" decoding="async">
+		</a>
+	</div>
+
+	<div class="container-login-main-menu">
+		<a href="{% url 'Carts:cart' %}" class="container-link-main-menu">
+			<i class="fa-solid fa-cart-shopping container-link-main-menu__icon" aria-hidden="true"></i>
+			<p class="container-link-main-menu__quantity-products">
+				{{cantidad_productos_carrito}}
+			</p>
+		</a>
+		{% if request.user.is_authenticated %}
+			<div class="container-user-main-menu">
+				{{user.first_name.split | first}} {{user.last_name.split | first}}
+				<i class="fa-solid fa-angle-down container-user-main-menu__icon" aria-hidden="true" id="button-toggle-menu-options-user"></i>
+				<ul class="container-options-user-main-menu" id="container-toggle-main-menu-options-user">
+					<li class="container-element-option-user-main-menu">
+						<a href="{% url 'Users:dashboard-user' %}" class="container-link-elemento-option-user-main-menu">
+							<i class="fa-solid fa-user-gear container-link-elemento-option-user-main-menu__icon" aria-hidden="true"></i>
+							Mi cuenta
+						</a>
+					</li>
+					<li class="container-element-option-user-main-menu">
+						<a href="{% url 'Users:logout' %}" class="container-link-elemento-option-user-main-menu"> 
+							<i class="fa-solid fa-power-off container-link-elemento-option-user-main-menu__icon" aria-hidden="true"></i>
+							Cerrar sesion
+						</a>
+					</li>
+				</ul>
+			</div>
+		{% else %}
+			<a href="{% url 'Users:login' %}" class="container-login-main-menu__link">
+				Iniciar sesión
+			</a>
+		{% endif %}
+	</div>
+</nav>

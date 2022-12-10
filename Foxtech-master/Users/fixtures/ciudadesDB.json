@@ -1,0 +1,321 @@
+[
+{
+    "model": "Users.city",
+    "pk": 1,
+    "fields": {
+        "description": "Arauca",
+        "zip_code": "810001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 2,
+    "fields": {
+        "description": "Armenia",
+        "zip_code": "630001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 3,
+    "fields": {
+        "description": "Barranquilla",
+        "zip_code": "80001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"    
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 4,
+    "fields": {
+        "description": "Bogotá",
+        "zip_code": "112701",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 5,
+    "fields": {
+        "description": "Bucaramanga",
+        "zip_code": "680001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 6,
+    "fields": {
+        "description": "Cali",
+        "zip_code": "760036",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 7,
+    "fields": {
+        "description": "Cartagena",
+        "zip_code": "130010",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 8,
+    "fields": {
+        "description": "Cúcuta",
+        "zip_code": "540001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 9,
+    "fields": {
+        "description": "Florencia",
+        "zip_code": "180001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 10,
+    "fields": {
+        "description": "Ibagué",
+        "zip_code": "730001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 11,
+    "fields": {
+        "description": "Inírida",
+        "zip_code": "940001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 12,
+    "fields": {
+        "description": "Leticia",
+        "zip_code": "910001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 13,
+    "fields": {
+        "description": "Manizales",
+        "zip_code": "170001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 14,
+    "fields": {
+        "description": "Medellín",
+        "zip_code": "50035",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"    }
+},
+{
+    "model": "Users.city",
+    "pk": 15,
+    "fields": {
+        "description": "Mitú",
+        "zip_code": "970001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 16,
+    "fields": {
+        "description": "Mocoa",
+        "zip_code": "860001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 17,
+    "fields": {
+        "description": "Montería",
+        "zip_code": "230001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 18,
+    "fields": {
+        "description": "Neiva",
+        "zip_code": "410001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 19,
+    "fields": {
+        "description": "Pasto",
+        "zip_code": "520017",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 20,
+    "fields": {
+        "description": "Pereira",
+        "zip_code": "660001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 21,
+    "fields": {
+        "description": "Popayán",
+        "zip_code": "190001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 22,
+    "fields": {
+        "description": "Puerto Carreño",
+        "zip_code": "990001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 23,
+    "fields": {
+        "description": "Quibdó",
+        "zip_code": "270001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 24,
+    "fields": {
+        "description": "Riohacha",
+        "zip_code": "440001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 25,
+    "fields": {
+        "description": "San Andrés y Providencia",
+        "zip_code": "880027",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 26,
+    "fields": {
+        "description": "San José del Guaviare",
+        "zip_code": "950001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 27,
+    "fields": {
+        "description": "Santa Marta",
+        "zip_code": "470001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 28,
+    "fields": {
+        "description": "Sincelejo",
+        "zip_code": "700001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 29,
+    "fields": {
+        "description": "Tunja",
+        "zip_code": "150001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 30,
+    "fields": {
+        "description": "Valledupar",
+        "zip_code": "200001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 31,
+    "fields": {
+        "description": "Villavicencio",
+        "zip_code": "500001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+},
+{
+    "model": "Users.city",
+    "pk": 32,
+    "fields": {
+        "description": "Yopal",
+        "zip_code": "850001",
+        "create": "2022-02-09T14:20:45.791Z",
+        "modified": "2022-02-09T14:20:45.791Z"
+    }
+}
+]

@@ -1,0 +1,101 @@
+{% if productos.has_other_pages %}
+    <article class="container-pagination-products">
+        <ul class="container-list-pagination-products">
+            <li class="container-element-list-pagination-products container-element-list-pagination-products--width">
+                {% if productos.has_previous %}
+                    {% if request.GET.ordenar and request.GET.q %}
+                        <a href="?q={{request.GET.q}}&ordenar={{request.GET.ordenar}}&page={{productos.previous_page_number}}" class="container-element-list-pagination-products__link">
+                            Anterior
+                        </a>
+                    {% elif request.GET.ordenar %}
+                        <a href="?ordenar={{request.GET.ordenar}}&page={{productos.previous_page_number}}" class="container-element-list-pagination-products__link">
+                            Anterior
+                        </a>
+                    {% elif request.GET.q %}
+                        <a href="?q={{request.GET.q}}&page={{productos.previous_page_number}}" class="container-element-list-pagination-products__link">
+                            Anterior
+                        </a>
+                    {% else %}
+                        <a href="?page={{productos.previous_page_number}}" class="container-element-list-pagination-products__link">
+                            Anterior
+                        </a>
+                    {% endif %}
+                {% else %}
+                    <a href="#" class="container-element-list-pagination-products__link container-element-list-pagination-products__link--deactivate">
+                        Anterior
+                    </a>
+                {% endif %}
+            </li>
+
+            {% for i in paginacion.page_range %}
+                {% if productos.number == i %}
+                    <li class="container-element-list-pagination-products container-element-list-pagination-products--active">
+                        {% if request.GET.q and request.GET.ordenar %}
+                            <a href="?q={{request.GET.q}}&ordenar={{request.GET.ordenar}}&page={{i}}" class="container-element-list-pagination-products__link container-element-list-pagination-products__link--active">
+                                {{i}}
+                            </a>
+                        {% elif request.GET.ordenar %}
+                            <a href="?ordenar={{request.GET.ordenar}}&page={{i}}" class="container-element-list-pagination-products__link container-element-list-pagination-products__link--active">
+                                {{i}}
+                            </a>
+                        {% elif request.GET.q %}
+                            <a href="?ordenar={{request.GET.q}}&page={{i}}" class="container-element-list-pagination-products__link container-element-list-pagination-products__link--active">
+                                {{i}}
+                            </a>
+                        {% else %}
+                            <a href="?page={{i}}" class="container-element-list-pagination-products__link container-element-list-pagination-products__link--active">
+                                {{i}}
+                            </a>
+                        {% endif %}
+                    </li>
+                {% else %}
+                    <li class="container-element-list-pagination-products">
+                        {% if request.GET.q and request.GET.ordenar %}
+                            <a href="?q={{request.GET.q}}&page={{i}}&ordenar={{request.GET.ordenar}}" class="container-element-list-pagination-products__link">
+                                {{i}}
+                            </a>
+                        {% elif request.GET.ordenar %}
+                            <a href="?ordenar={{request.GET.ordenar}}&page={{i}}" class="container-element-list-pagination-products__link">
+                                {{i}}
+                            </a>
+                        {% elif request.GET.q %}
+                            <a href="?q={{request.GET.q}}&page={{i}}" class="container-element-list-pagination-products__link">
+                                {{i}}
+                            </a>
+                        {% else %}
+                            <a href="?page={{i}}" class="container-element-list-pagination-products__link">
+                                {{i}}
+                            </a>
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            <li class="container-element-list-pagination-products container-element-list-pagination-products--width">
+                {% if productos.has_next %}
+                    {% if request.GET.q and request.GET.ordenar %}
+                        <a href="?q={{request.GET.q}}&ordenar={{request.GET.ordenar}}&page={{productos.next_page_number}}" class="container-element-list-pagination-products__link">
+                            Siguiente
+                        </a>
+                    {% elif request.GET.ordenar %}
+                        <a href="?ordenar={{request.GET.ordenar}}&page={{productos.next_page_number}}" class="container-element-list-pagination-products__link">
+                            Siguiente
+                        </a>
+                    {% elif request.GET.q %}
+                        <a href="?q={{request.GET.q}}&page={{productos.next_page_number}}" class="container-element-list-pagination-products__link">
+                            Siguiente
+                        </a>
+                    {% else %}
+                        <a href="?page={{productos.next_page_number}}" class="container-element-list-pagination-products__link">
+                            Siguiente
+                        </a>
+                    {% endif %}
+                {% else %}
+                    <a href="#" class="container-element-list-pagination-products__link container-element-list-pagination-products__link--deactivate">
+                        Siguiente
+                    </a>
+                {% endif %}
+            </li>
+        </ul>
+    </article>
+{% endif %}

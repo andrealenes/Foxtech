@@ -1,0 +1,58 @@
+{% extends 'users/dashboard_usuario/base_dashboard.html' %}
+
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/direccionesUsuario.css' %}">
+	<title>Direcciones</title>
+{% endblock %}
+
+{% block options_menu %}
+    {% include 'users/dashboard_usuario/snippets/menuUser.html' %}
+{% endblock %}
+
+{% block content %}
+	<h2 class="container-main-dashboard-user__title">Mis direcciones</h2>
+
+	<a href="{% url 'Users:new-address' %}" class="container-main-dashboard-user__link">
+		Agregar nueva direccion
+	</a>
+
+	<section class="container-list-address-user">
+		{% for direccion in direcciones %}
+			<article class="container-element-address-user">
+				<p class="container-info-element-address-user">
+					<strong>Ciudad: </strong>{{direccion.city}}
+				</p>
+				<p class="container-info-element-address-user">
+					<strong>Direccion: </strong>{{direccion.address}}
+				</p>
+				<p class="container-info-element-address-user">
+					<strong>Barrio/Localidad: </strong>{{direccion.neighborhood}}
+				</p>
+				<p class="container-info-element-address-user">
+					<strong>Codigo postal: </strong>{{direccion.city.zip_code}}
+				</p>
+				<p class="container-info-element-address-user container-info-element-address-user--flex">
+					<strong>Direccion principal: </strong>
+					{% if direccion.default %}
+						<img src="https://res.cloudinary.com/dpxek6oka/image/upload/v1647989084/images/true_bhu84m.webp" alt="Icono verdadero" decoding="async" loading="lazy" aria-hidden="true" class="container-info-element-address-user__img">
+					{% else %}
+						<img src="https://res.cloudinary.com/dpxek6oka/image/upload/v1647989087/images/false_l3ffiq.webp" alt="Icono falso" loading="lazy" decoding="async" aria-hidden="true" class="container-info-element-address-user__img">  
+					{% endif %}
+				</p>
+
+				<p class="container-info-element-address-user">
+					<a href="{% url 'Users:edit-address' direccion.id_address %}" class="container-info-element-address-user__link">
+						Editar
+					</a>
+					{% if not direccion.default %}
+						<a href="{% url 'Users:delete-address' direccion.id_address %}" class="container-info-element-address-user__link container-info-element-address-user__link--background">
+							Eliminar
+						</a>
+					{% endif %}
+				</p>
+			</article>
+		{% endfor %}
+	</section>
+{% endblock %}

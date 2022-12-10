@@ -1,0 +1,98 @@
+{% extends 'users/dashboard_usuario/base_dashboard.html' %}
+
+{% load static %}
+{% load humanize %}
+
+{% block head %}
+	<title>Detalle compra</title>
+{% endblock %}
+
+{% block options_menu %}
+    {% include 'users/dashboard_usuario/snippets/menuUser.html' %}
+{% endblock %}
+
+{% block content %}
+	<h2 class="container-main-dashboard-user__title">
+        Detalle compra
+    </h2>
+
+    <section>
+        <p>
+            <strong>Método de entrega: </strong> {{compra.order.type_of_delivery}}
+        </p>
+
+        {% if compra.order.type_of_delivery.description != 'Recoge en tienda' %}
+            <div>
+                <p>
+                    <strong>Direccion de envio: </strong>
+                </p>
+                <ul>
+                    <li>
+                        <strong>Ciudad: </strong>{{compra.order.address.city}}
+                    </li>
+                    <li>
+                        <strong>Codigo postal: </strong>{{compra.order.address.city.zip_code}}
+                    </li>
+                    <li>
+                        <strong>Barrio/Localidad: </strong>{{compra.order.address.neighborhood}}
+                    </li>
+                    <li>
+                        <strong>Direccion: </strong>{{compra.order.address.address}}
+                    </li>
+                </ul>
+            </div>
+        {% endif %}
+
+        <p>
+            <strong>Método de pago: </strong> {{compra.order.payment_type}}
+        </p>
+
+        <article>
+            <h2>
+                Productos
+            </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <td>Total</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for object in compra.order.cart.products_related %}
+                        {% with producto=object.product %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{producto}}</td>
+                                <td>{{object.quantity}}</td>
+                                <td>$ {{producto.final_price|intcomma}}</td>
+                                {% widthratio object.quantity 1 producto.final_price as total %}
+                                <td>$ {{total|intcomma}}</td>
+                            </tr>
+                        {% endwith %}
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div>
+                <h2>Resumen orden de compra</h2>
+                <p>
+                    <strong>Costo envio: </strong>$ {{compra.order.shipping_total|intcomma}}
+                </p>
+                <p>
+                    <strong>IVA 19%: </strong>$ {{compra.order.cart.total_iva|intcomma }}
+                </p>
+                <p> 
+                    <strong>Subtotal: </strong>$ {{compra.order.cart.subtotal|intcomma }}
+                </p>
+                <p>
+                    <strong>Total: </strong>$ {{compra.order.total|intcomma}}
+                </p>
+            </div>
+        </article>
+    </section>
+
+{% endblock %}

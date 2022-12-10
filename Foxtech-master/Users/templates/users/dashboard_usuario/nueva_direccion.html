@@ -1,0 +1,26 @@
+{% extends 'users/dashboard_usuario/base_dashboard.html' %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/estilosBaseDireccion.css' %}">
+	<title>Agregar direccion</title>
+{% endblock %}
+
+{% block options_menu %}
+    {% include 'users/dashboard_usuario/snippets/menuUser.html' %}
+{% endblock %}
+
+{% block content %}
+	<h2 class="container-main-dashboard-user__title">Agregar direccion</h2>
+
+    <form action="{% url 'Users:new-address' %}" method="POST" class="container-form-address-user container-form-address-user--margin-left">
+        {% csrf_token %}
+
+        {% include 'users/dashboard_usuario/snippets/formularioDIreccionesUsuario.html' %}
+
+        <button class="container-form-address-user__btn">
+            Agregar nueva direccion
+        </button>
+    </form>
+{% endblock %}

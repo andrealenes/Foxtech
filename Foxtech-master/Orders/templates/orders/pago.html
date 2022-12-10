@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/pedido.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pago.css' %}">
+    <title>Pago</title>
+{% endblock %}
+
+{% block content %}
+    <header>
+        {% include 'snippets/main_nav.html' %}
+    </header>
+
+    <main class="main-payment-order">
+        {% include 'snippets/mensajes.html' %}
+        {% include 'orders/snippets/breadcrumb.html' %}
+
+        <section class="container-type-of-payment-order">
+            <h2 class="container-type-of-payment-order__title">
+                Métodos de pago
+            </h2>
+            <form action="" method="POST" class="form-type-of-payment-order">
+                {% csrf_token %}
+
+                {% for metodo_de_pago in metodos_de_pago %}
+                    {% if orden.type_of_delivery.description == 'Recoge en tienda' and metodo_de_pago.description == 'Contra entrega' %}
+                    {% else %}
+                        <label class="container-label-type-of-payment-order">
+                            <input type="radio" name="metodo_pago" value="{{metodo_de_pago}}" {% if orden.payment_type == metodo_de_pago %}checked{% endif %} class="container-label-type-of-payment-order__input">
+                            {{metodo_de_pago}}
+                        </label>
+                    {% endif %}
+                {% endfor %}
+
+                <button class="form-type-of-payment-order__btn">
+                    Continuar
+                </button>
+            </form>
+        </section>
+
+        <section class="container-total-resume-order container-total-resume-order--size">
+            <h2 class="container-total-resume-order__title">
+                Resumen orden de compra
+            </h2>
+            <p class="container-paragraph-total-resume-order">
+                <strong>Costo envio: </strong> $ {{ orden.shipping_total |intcomma }}
+            </p> 
+            <p class="container-paragraph-total-resume-order">
+                <strong>Subtotal:</strong> $ {{ carrito.subtotal|intcomma }}
+            </p>
+            <p class="container-paragraph-total-resume-order">
+                <strong>IVA 19%: </strong> $ {{carrito.total_iva|intcomma }}
+            </p> 
+            <p class="container-paragraph-total-resume-order container-paragraph-total-resume-order--border">
+                <strong>Total:</strong> $ {{ orden.get_total|intcomma }}
+            </p>
+        </section>
+
+        {% include 'snippets/aside.html' %}
+    </main>
+
+    {% include 'snippets/footer.html' %}
+{% endblock %}

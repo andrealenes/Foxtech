@@ -1,0 +1,18 @@
+{% extends 'users/dashboard_usuario/base_dashboard.html' %}
+
+{% load static %}
+
+{% block head %}
+    <title>SaleCold</title>
+{% endblock %}
+
+{% block options_menu %}
+    {% include 'users/dashboard_usuario/snippets/menuUser.html' %}
+{% endblock %}
+
+{% block content %}
+    <h2>
+        Bienvenido de nuevo {{request.user.first_name.split | first}} 
+        {{request.user.last_name.split | first}}
+    </h2>
+{% endblock %}

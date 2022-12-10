@@ -1,0 +1,43 @@
+.form-contraseña {
+    font-size: .9rem;
+}
+
+.container-label-form-contraseña {
+    display: block;
+    margin-bottom: 1.2em;
+}
+
+.container-label-form-contraseña__input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: .5em;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    -ms-border-radius: .5em;
+    -o-border-radius: .5em;
+    background-color: var(--bgcolor-input-form);
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-left: .7em;
+}
+
+.form-contraseña__btn {
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    background: #479ECE;
+    color: white;
+    border: none;
+    border-radius: .5em;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    -ms-border-radius: .5em;
+    -o-border-radius: .5em;
+    font-size: .9rem;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    cursor: pointer;
+}

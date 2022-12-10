@@ -1,0 +1,190 @@
+body {
+    padding-top: 4em;
+}
+
+.container-shopping-cart-empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70vh;
+    font-size: 1rem;
+}
+
+.main-cart-shopping {
+    padding: 1em;
+    font-size: .9rem;
+}
+
+.container-list-products-cart-shopping {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1.3em;
+}
+
+.container-element-products-cart-shopping {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 90px repeat(3, 1fr);
+    height: 115px;
+    background-color: white;
+    border-radius: .5em;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    -ms-border-radius: .5em;
+    -o-border-radius: .5em;
+    margin-bottom: 1.2em;
+    padding: .8em;
+    gap: .6em;
+    font-size: .8rem;
+    position: relative;
+}
+
+.container-form-delete-product {
+    top: .5em;
+    left: .5em;
+    position: absolute;
+}
+
+.container-form-delete-product__btn {
+    border: none;
+    color: rgb(163, 163, 163);
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.container-quantity-product-cart-shopping {
+    display: flex;
+    grid-row: 3;
+    align-self: flex-end;
+    align-items: center;
+    gap: .7em;
+}
+
+.container-quantity-product-cart-shopping__paragraph {
+    margin: 0;
+    font-size: .8rem;
+}
+
+.container-element-products-cart-shopping__img {
+    align-self: center;
+    grid-row: 1 / span 3;
+    grid-column: 1 / 1;
+}
+
+.container-element-products-cart-shopping__link {
+    grid-column: 2 / span 3;
+    color: black;
+    font-weight: bold;
+}
+
+.container-element-products-cart-shopping__paragraph {
+    grid-column: 3 / span 2;
+    grid-row: 3;
+    margin: 0;
+    align-self: flex-end;
+    text-align: end;
+    width: 100%;
+    color: blue;
+}
+
+.container-form-decrease-quantity-product-cart-shopping__btn, .container-form-increase-quantity-product-cart-shopping__btn {
+    width: 25px;
+    height: 0;
+    font-size: .8rem;
+    border: none;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.container-form-increase-quantity-product-cart-shopping__btn--deactived {
+    cursor: default;
+    pointer-events: none;
+    color: rgb(163, 163, 163);
+}
+
+.container-total-price-cart {
+    margin-bottom: 1.2em;
+    background-color: white;
+    border-radius: .5em;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    -ms-border-radius: .5em;
+    -o-border-radius: .5em;
+    padding: 1em;
+    font-size: .8rem;
+}
+
+.section-products-cart-shopping {
+    padding-bottom: 1em;
+}
+
+.main-cart-shopping__title, .container-total-price-cart__title {
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.container-confirm-shop-cart, .container-shopping-cart-empty__link {
+    width: 140px;
+    display: block;
+    background: #479ECE;
+    color: white;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border-radius: .4em;
+    -webkit-border-radius: .4em;
+    -moz-border-radius: .4em;
+    -ms-border-radius: .4em;
+    -o-border-radius: .4em;
+    font-size: .9rem;
+    margin-bottom: 1em;
+}
+
+.container-options-cart-shopping {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.container-options-cart-shopping__link {
+    color: #616161;
+}
+
+.container-confirm-shop-cart {
+    margin-bottom: 0;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2em;
+}
+
+.container-shopping-cart-empty__img {
+    width: 100px;
+}
+
+.container-total-price-cart__title {
+    margin-bottom: .5em;
+}
+
+.container-total-price-cart__paragraph {
+    border-bottom: 1px solid rgba(195, 195, 195, 0.418);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin: 0;
+}
+
+.container-total-price-cart__paragraph--size {
+    font-size: .8rem;
+    font-style: italic;
+}
+
+.container-total-price-cart__icon {
+    margin-right: .2em;
+    font-size: 1.2rem;
+}

@@ -1,0 +1,27 @@
+{% if messages %}
+    {% for mensaje in messages %}
+        <section class="container-modal" id="containerModal">
+            <article class="modal">
+                {% if mensaje.tags == 'success' or mensaje.tags == 'error' or mensaje.tags == 'info' %}
+                    <img src="
+                    {% if mensaje.tags == 'success' %} 
+                    https://res.cloudinary.com/dpxek6oka/image/upload/v1646608238/images/checked_mhmicv.webp 
+                    {% elif mensaje.tags == 'error' %}
+                    https://res.cloudinary.com/dpxek6oka/image/upload/v1646608242/images/cancel_bqxgzw.webp 
+                    {% elif mensaje.tags == 'info' %}
+                    https://res.cloudinary.com/dpxek6oka/image/upload/v1648160541/images/info_baif3a.webp
+                    {% endif %}" class="modal__img" loading="lazy" aria-hidden="true" alt="Imagen modal" decoding="async">
+                {% endif %}
+
+                <i class="fa-solid fa-xmark modal__icon" aria-hidden="true" onclick="cerrarModal()"></i>
+                <p class="modal__paragraph">{{mensaje}}</p>
+                <button class="modal__btn 
+                {% if mensaje.tags == 'error' %}
+                modal__btn--error
+                {% elif mensaje.tags == 'info' %}
+                modal__btn--info
+                {% endif %}" onclick="cerrarModal()">Aceptar</button>
+            </article>
+        </section>
+    {% endfor %}
+{% endif %}

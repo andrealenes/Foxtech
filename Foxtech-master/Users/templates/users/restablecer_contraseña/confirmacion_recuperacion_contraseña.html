@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/confirmacion_recuperacion_contraseña.css' %}">
+    <title>Recuperar contraseña</title>
+{% endblock %}
+
+{% block content %}
+    <header>
+        {% include 'snippets/main_nav.html' %}
+    </header>
+
+    <main class="main-confirm-reset-password">
+        <h2 class="main-confirm-reset-password__title">
+            Recuperacion de contraseña completado
+        </h2>
+        <p class="main-confirm-reset-password__paragraph">
+            Su contraseña ha sido establecida. Ahora puede seguir adelante e iniciar sesión.
+        </p>
+        <a href="{% url 'Users:login' %}" class="main-confirm-reset-password__btn">
+            Iniciar sesión
+        </a>
+    </main>
+
+    {% include 'snippets/aside.html' %}
+
+    {% include 'snippets/footer.html' %}
+{% endblock %}
