@@ -1,4 +1,4 @@
-<p align="center"><img src=https://github.com/andrealenes/foxtech/blob/main/foxtech%20(500%20%C3%97%20200%C2%A0px).png width="550" height="500">
+<p align="center"><img src=https://github.com/andrealenes/foxtech/blob/main/foxtech%20(500%20%C3%97%20200%C2%A0px).png width="500" height="300">
   
   
  # ***FoxTech*** #
