@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/497f8112-35cd-4bdb-93db-2662e2433e03/AppServices/subscriptions/497f8112-35cd-4bdb-93db-2662e2433e03/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/foxtechapp",
-    "appService.deploySubpath": "."
-}
