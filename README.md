@@ -16,11 +16,6 @@ Desarrollar un sistema de informacion que le permita al cliente vender sus produ
 - Cumplir con las necesidades del cliente  en cuanto a los requerimientos de software a la medida.
 
 
-## ***Justificación*** :sunglasses:
-
-El proyecto se sitúa en la ciudad de  Barranquilla, busca suplir dos necesidades, a saber:  la empresa no tiene  un aplicativo web que facilite la venta de repuestos para  refrigeradores y le ahorre a los clientes desplazamientos largos para encontrar el repuesto que se requiere, en ese sentido con el aplicativo los usuarios podrán consultar, cotizar y comprar sin necesidad de ir al establecimiento físico;  de otro lado , la empresa debe mejorar la organización de la información (clientes, stock de los repuestos, ventas, entre otros), pues no cuenta con un modelo de organización efectiva, por lo cual un aplicativo web es una gran opción tanto para los usuarios y  clientes como para la empresa.
-
-
 
 ## ***Integrantes del proyecto*** :student:
 
